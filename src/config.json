@@ -1,0 +1,10 @@
+{
+    "baseUrl": "https://api.asgardeo.io/t/doodus",
+    "clientID": "kxIgCR3xn8de0dbT6qUQSd3yhsca",
+    "scope": [
+        "openid",
+        "profile"
+    ],
+    "signInRedirectURL": "http://localhost:3000",
+    "signOutRedirectURL": "http://localhost:3000"
+}
