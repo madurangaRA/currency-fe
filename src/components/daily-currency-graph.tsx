@@ -9,7 +9,7 @@ const DailyCurrencyGraph = () => {
     const fetchLikeCountData = async () => {
         try {
             const apiUrl = window.configs.apiUrl
-            const response = await fetch(apiUrl+':8082/currency/getDailyCurrency');
+            const response = await fetch(apiUrl+'/getDailyCurrency');
             const data = await response.json();
             setLikeCountData(data);
             console.log("Fetched like count data:", data);
