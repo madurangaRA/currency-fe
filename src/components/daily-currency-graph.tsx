@@ -8,7 +8,8 @@ const DailyCurrencyGraph = () => {
     // Function to fetch daily like count data from Facebook API
     const fetchLikeCountData = async () => {
         try {
-            const response = await fetch('https://910d8c3f-ba85-4197-803c-871a29817e06-dev.e1-us-east-azure.choreoapis.dev/currencywebapp/currencybe/currency-9a9/v1.0/getDailyCurrency');
+            const apiUrl = (window as any).configs.apiUrl;
+            const response = await fetch({apiUrl}+'/getDailyCurrency');
             const data = await response.json();
             setLikeCountData(data);
             console.log("Fetched currncey data:", data);
