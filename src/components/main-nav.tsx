@@ -52,7 +52,7 @@ function MainNav() {
               textDecoration: 'none',
             }}
           >
-            Currnecy Information
+            Currency Information
           </Typography>
         </Toolbar>
       </Container>

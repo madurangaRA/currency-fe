@@ -2,33 +2,32 @@ import React, { useEffect, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const DailyCurrencyGraph = () => {
-    // State to store daily like count data
-    const [likeCountData, setLikeCountData] = useState([]);
+    // State to store daily USD rate data
+    const [currencyData, setCurrencyData] = useState([]);
 
-    // Function to fetch daily like count data from Facebook API
-    const fetchLikeCountData = async () => {
+    // Function to fetch daily USD rate from the API
+    const fetchCurrencyData = async () => {
         try {
             const apiUrl = (window as any).configs.apiUrl;
             const response = await fetch({apiUrl}+'/getDailyCurrency');
             const data = await response.json();
-            setLikeCountData(data);
-            console.log("Fetched currncey data:", data);
+            setCurrencyData(data);
+            console.log("Fetched currency data:", data);
         } catch (error) {
             console.error("Error fetching like count data:", error);
         }
     };
 
-    // Fetch like count data on component mount
     useEffect(() => {
-        fetchLikeCountData();
-    }, []); // Empty dependency array ensures this effect runs only once after initial render
+        fetchCurrencyData();
+    }, []); 
 
     return (
         <div className="facebook-daily-like-count-graph">
             <h3>Daily USD to LKR</h3>
             <ResponsiveContainer width="100%" height={300}>
                 <LineChart
-                    data={likeCountData}
+                    data={currencyData}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
